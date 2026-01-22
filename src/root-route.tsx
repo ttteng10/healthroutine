@@ -7,6 +7,7 @@ import GlobalLayout from "./components/layout/global-layout";
 import GuestOnlyLayout from "./components/layout/guest-only-layout";
 import MemberOnlyLayout from "./components/layout/member-only-layout";
 import ResetPasswordPage from "./pages/reset-password-page";
+import DetailPage from "./pages/detail-page";
 
 export default function RootRoute() {
   return (
@@ -21,6 +22,7 @@ export default function RootRoute() {
         <Route element={<MemberOnlyLayout />}>
           <Route path="/" element={<IndexPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/detail" element={<DetailPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to={"/"} />} />

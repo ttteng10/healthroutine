@@ -3,6 +3,8 @@ import type { Database } from "./database.types";
 export type ProfileEntity = Database["public"]["Tables"]["profile"]["Row"];
 export type RoutineEntity = Database["public"]["Tables"]["routine"]["Row"];
 
+export type Post = RoutineEntity & { author: ProfileEntity };
+
 export type UseMutationCallback = {
   onSuccess?: () => void;
   onError?: (error: Error) => void;

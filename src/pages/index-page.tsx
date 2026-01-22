@@ -4,12 +4,10 @@ import PostHeader from "@/components/post/post-header";
 import { useCheckRoutineType } from "@/store/routine-type";
 
 export default function IndexPage() {
-  const routine = useCheckRoutineType();
   return (
     <div className="flex flex-col gap-5">
       <CreatePostButton />
       <PostHeader />
-      <div>{routine}</div>
       <PostFeed />
     </div>
   );

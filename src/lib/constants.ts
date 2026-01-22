@@ -4,11 +4,11 @@ export const QUERY_KEYS = {
     list: ["profile", "list"],
     byId: (userId: string) => ["profile", "byId", userId],
   },
-  post: {
-    all: ["post"],
-    list: ["post", "list"],
-    userList: (userId: string) => ["post", "userList", userId],
-    byId: (postId: number) => ["post", "byId", postId],
+  routine: {
+    all: ["routine"],
+    list: ["routine", "list"],
+    userList: (userId: string) => ["routine", "userList", userId],
+    byId: (postId: number) => ["routine", "byId", postId],
   },
   comment: {
     all: ["comment"],

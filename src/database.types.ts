@@ -41,6 +41,7 @@ export type Database = {
       routine: {
         Row: {
           author_id: string;
+          category: string;
           created_at: string;
           id: number;
           like_count: number;
@@ -48,6 +49,7 @@ export type Database = {
         };
         Insert: {
           author_id?: string;
+          category: string;
           created_at?: string;
           id?: number;
           like_count?: number;
@@ -55,6 +57,7 @@ export type Database = {
         };
         Update: {
           author_id?: string;
+          category?: string;
           created_at?: string;
           id?: number;
           like_count?: number;

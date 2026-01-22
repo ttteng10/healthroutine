@@ -1,8 +1,21 @@
 import supabase from "@/lib/supabase";
-import type { RoutineItem } from "@/types";
+import type { RoutineEntity, RoutineItem } from "@/types";
 
-export async function fetchRoutines() {
-  const { data, error } = await supabase.from("routine").select("*");
+export async function fetchRoutines({
+  from,
+  to,
+}: {
+  from: number;
+  to: number;
+}) {
+  const { data, error } = await supabase
+    .from("routine")
+    .select("*, author: profile!author_id (*)")
+    .order("created_at", { ascending: false })
+    .range(from, to);
+
+  if (error) throw error;
+  return data;
 }
 
 export async function createRoutines({
@@ -28,13 +41,26 @@ export async function createRoutines({
       author_id: userId, // uuid 컬럼
       like_count: 0, // int8 컬럼 (초기값)
     })
-    .select()
-    .single();
+    .select();
 
   if (error) {
     console.error("루틴 저장 중 오류 발생:", error);
     throw error;
   }
 
+  return data;
+}
+
+export async function updateRoutines(
+  post: Partial<RoutineEntity> & { id: number },
+) {
+  const { data, error } = await supabase
+    .from("routine")
+    .update(post)
+    .eq("id", post.id)
+    .select()
+    .single();
+
+  if (error) throw error;
   return data;
 }
