@@ -9,6 +9,7 @@ const headerTag = [
   "하체",
   "복근",
   "유산소",
+  "test",
 ];
 
 export default function PostHeader() {
