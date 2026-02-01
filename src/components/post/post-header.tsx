@@ -2,6 +2,7 @@ import { useCheckRoutineType, useRoutineActions } from "@/store/routine-type";
 
 const headerTag = [
   "전체",
+  "test",
   "등",
   "가슴",
   "어깨",
